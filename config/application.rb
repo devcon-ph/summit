@@ -28,5 +28,7 @@ module Summit
     # config.i18n.default_locale = :de
 
     config.assets.initialize_on_precompile = false
+    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
   end
 end
