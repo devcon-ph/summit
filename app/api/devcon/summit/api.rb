@@ -24,6 +24,24 @@ module Devcon
         end
       end
 
+      resources :users do
+        desc 'Return the authentication token of a newly created user'
+        params do
+          requires :email, type: String, desc: 'Email Address'
+          requires :password, type: String, desc: 'Password'
+        end
+        post do
+          user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password])
+          if user.save
+            present :status_code, 200
+            present :authentication_token, user.authentication_token
+            present :message, 'Successfully created a user'
+          else
+            error!(status_code: 400, message: 'Failed to create user')
+          end
+        end
+      end
+
       resources :tokens do
         desc 'Return an authentication token'
         params do
