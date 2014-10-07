@@ -41,6 +41,12 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+group :development do
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-bundler'
+end
+
 group :production do
   gem 'unicorn'
   gem 'pg'
