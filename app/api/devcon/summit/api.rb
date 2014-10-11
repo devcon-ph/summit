@@ -78,7 +78,7 @@ module Devcon
 
       resources :programs do
         desc 'Return the list of all programs'
-        get do
+        post do
           authenticated?
           present :programs, Program.all.map{|program| ProgramSerializer.new(program)}
           present :status_code, 200
@@ -87,7 +87,7 @@ module Devcon
 
       resources :speakers do
         desc 'Return the list of all speakers'
-        get do
+        post do
           authenticated?
           present :speakers, Speaker.all.map{|speaker| SpeakerSerializer.new(speaker)}
           present :status_code, 200
