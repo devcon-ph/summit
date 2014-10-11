@@ -76,6 +76,14 @@ module Devcon
         end
       end
 
+      resources :programs do
+        desc 'Return the list of all programs'
+        get do
+          present :programs, Program.all.map{|program| ProgramSerializer.new(program)}
+          present :status_code, 200
+        end
+      end
+
       resources :speakers do
         desc 'Return the list of all speakers'
         get do
