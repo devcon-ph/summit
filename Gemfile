@@ -55,3 +55,4 @@ end
 gem 'devise'
 gem 'rails_12factor'
 gem 'grape'
+gem 'active_model_serializers'

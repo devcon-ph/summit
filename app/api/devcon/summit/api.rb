@@ -75,6 +75,15 @@ module Devcon
           end
         end
       end
+
+      resources :speakers do
+        desc 'Return the list of all speakers'
+        get do
+          authenticated?
+          present :speakers, Speaker.all.map{|speaker| SpeakerSerializer.new(speaker)}
+          present :status_code, 200
+        end
+      end
     end
   end
 end
