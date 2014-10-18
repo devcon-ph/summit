@@ -37,9 +37,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :development, :test do
-  gem 'sqlite3'
-end
+gem 'sqlite3'
 
 group :development do
   gem 'capistrano', '~> 3.2.1'
