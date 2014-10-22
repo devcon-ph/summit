@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011043531) do
+ActiveRecord::Schema.define(version: 20141022113412) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 20141011043531) do
     t.string   "company"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description",    default: ""
+    t.string   "twitter_handle", default: ""
+    t.string   "website",        default: ""
+    t.string   "photo_url",      default: ""
   end
 
   create_table "users", force: true do |t|
