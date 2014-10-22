@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022113412) do
+ActiveRecord::Schema.define(version: 20141022115154) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -44,6 +44,21 @@ ActiveRecord::Schema.define(version: 20141022113412) do
     t.string   "twitter_handle", default: ""
     t.string   "website",        default: ""
     t.string   "photo_url",      default: ""
+  end
+
+  create_table "sponsor_categories", force: true do |t|
+    t.string   "name",       default: ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sponsors", force: true do |t|
+    t.string   "name",                default: ""
+    t.string   "photo_url",           default: ""
+    t.integer  "sponsor_category_id"
+    t.string   "website",             default: ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

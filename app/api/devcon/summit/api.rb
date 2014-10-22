@@ -93,6 +93,15 @@ module Devcon
           present :status_code, 200
         end
       end
+
+      resources :sponsors do
+        desc 'Return the list of all sponsors'
+        post do
+          authenticated?
+          present :sponsors, Sponsor.all.map{|sponsor| SponsorSerializer.new(sponsor)}
+          present :status_code, 200
+        end
+      end
     end
   end
 end
