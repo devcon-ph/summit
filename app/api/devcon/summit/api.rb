@@ -141,6 +141,14 @@ module Devcon
           present :status_code, 200
         end
       end
+
+      resources :technologies do
+        desc 'Return all technologies'
+        get do
+          present :technologies, Technology.all.map{|technology| TechnologySerializer.new(technology)}
+          present :status_code, 200
+        end
+      end
     end
   end
 end
