@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   before_save :ensure_authentication_token
 
+  belongs_to :primary_technology, class_name: 'Technology', foreign_key: 'technology_id'
+  has_and_belongs_to_many :technologies
+
   def ensure_authentication_token
     if authentication_token.blank?
       self.authentication_token = generate_authentication_token

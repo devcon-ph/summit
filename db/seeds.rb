@@ -54,3 +54,23 @@ Program.create(title: 'iOS', start_at: DateTime.new(2014, 11, 29, 5, 0, 0), cate
 Program.create(title: 'The "What" and "Why" of NoSQL', start_at: DateTime.new(2014, 11, 29, 6, 15, 0), category: resource_talk, speakers: [matias_cascallares])
 Program.create(title: 'Automated Testing', start_at: DateTime.new(2014, 11, 29, 8, 20, 0), category: resource_talk, speakers: [jv_cuevas])
 Program.create(title: 'Git & GitHub Tips for Beginners', start_at: DateTime.new(2014, 11, 29, 8, 20, 0), category: resource_talk, speakers: [sim_domingo])
+
+TECHNOLOGIES = [
+  ['Objective-C', 'objective-c'], ['Java', 'java'], ['Javascript', 'javascript'], ['Python', 'python'],
+  ['Ruby', 'ruby'], ['PHP', 'php'], ['C#', 'c#'], ['Android', 'android'], ['jQuery', 'jquery'], ['HTML', 'html'],
+  ['C++', 'c++'], ['iOS', 'ios'], ['MySQL', 'mysql'], ['CSS', 'css'], ['SQL', 'sql'], ['ASP.NET', 'asp.net'],
+  ['.NET', '.net'], ['Ruby on Rails', 'ruby-on-rails'], ['C', 'c'], ['XML', 'xml'], ['Django', 'django'],
+  ['VB.NET', 'vb.net'], ['R', 'r'], ['HTML5', 'html5'], ['Wordpress', 'wordpress'], ['Angular JS', 'angular-js'],
+  ['Node.js', 'node.js'], ['Spring', 'spring'], ['Oracle', 'oracle'], ['Git', 'git'], ['Apache', 'apache'],
+  ['LINQ', 'linq'], ['Entity Framework', 'entity-framework'], ['Perl', 'perl'], ['Hibernate', 'hibernate'],
+  ['WCF', 'wcf'], ['Matlab', 'matlab'], ['Qt', 'qt'], ['MongoDB', 'mongodb'], ['Actionscript', 'actionscript'],
+  ['SQLite', 'sqlite'], ['PostgreSQL', 'postgresql'], ['CodeIgniter', 'codeigniter'], ['Twitter Bootstrap', 'twitter-bootstrap'],
+  ['Cocoa', 'cocoa'], ['Flash', 'flash'], ['JSP', 'jsp'], ['T-SQL', 't-sql'], ['XAML', 'xaml'], ['Silver Light', 'silver-light'],
+  ['Magento', 'magento'], ['Symfony', 'symfony'], ['Flex', 'flex'], ['CakePHP', 'cakephp'], ['SVN', 'svn'], ['Mercurial', 'mercurial'],
+  ['Cordova', 'cordova'], ['Groovy', 'groovy'], ['Grails', 'grails'], ['Zend Framework', 'zend-framework'],
+  ['Backbone.js', 'backbone.js'], ['Go', 'go'], ['Elixir', 'elixir']
+]
+
+TECHNOLOGIES.each do |name, slug|
+  Technology.create(name: name, slug: slug)
+end

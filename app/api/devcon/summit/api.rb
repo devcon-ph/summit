@@ -102,6 +102,45 @@ module Devcon
           present :status_code, 200
         end
       end
+
+      resource :profile do
+        desc 'Return profile information'
+        post do
+          authenticated?
+          present :profile, UserSerializer.new(current_user)
+          present :status_code, 200
+        end
+
+        desc 'Update profile information'
+        put do
+          authenticated?
+          if current_user.update(
+                position: params[:position],
+                company: params[:company],
+                location: params[:location],
+                description: params[:description],
+                website: params[:website],
+                facebook_url: params[:facebook_url],
+                twitter_handle: params[:twitter_handle],
+                primary_technology: Technology.where(slug: params[:primary_technology]).first,
+                technologies: Technology.where('slug IN (?)', params[:technologies].split(','))
+              )
+            present :profile, UserSerializer.new(current_user)
+            present :status_code, 200
+          else
+            error!(status_code: 400, message: 'Failed to update profile')
+          end
+        end
+      end
+
+      resources :attendees do
+        desc 'Return all attendees'
+        post do
+          authenticated?
+          present :attendees, User.all.map{|user| UserSerializer.new(user)}
+          present :status_code, 200
+        end
+      end
     end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022115154) do
+ActiveRecord::Schema.define(version: 20141023095314) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(version: 20141022115154) do
     t.datetime "updated_at"
   end
 
+  create_table "technologies", force: true do |t|
+    t.string   "name",       default: ""
+    t.string   "slug",       default: ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "technologies_users", force: true do |t|
+    t.integer "technology_id"
+    t.integer "user_id"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -75,6 +87,16 @@ ActiveRecord::Schema.define(version: 20141022115154) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "authentication_token"
+    t.string   "first_name",             default: ""
+    t.string   "last_name",              default: ""
+    t.string   "position",               default: ""
+    t.string   "company",                default: ""
+    t.string   "location",               default: ""
+    t.text     "description",            default: ""
+    t.string   "website",                default: ""
+    t.string   "facebook_url",           default: ""
+    t.string   "twitter_handle",         default: ""
+    t.integer  "technology_id"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
