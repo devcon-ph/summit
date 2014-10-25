@@ -50,10 +50,11 @@ Sponsor.create(name: 'Globe Labs', photo_url: 'http://api.devcon.ph/summit_photo
 resource_talk = Category.create(name: 'Resource Talk')
 panel_discussion = Category.create(name: 'Panel Discussion')
 
-Program.create(title: 'iOS', start_at: DateTime.new(2014, 11, 29, 5, 0, 0), category: resource_talk, speakers: [allen_tan])
-Program.create(title: 'The "What" and "Why" of NoSQL', start_at: DateTime.new(2014, 11, 29, 6, 15, 0), category: resource_talk, speakers: [matias_cascallares])
-Program.create(title: 'Automated Testing', start_at: DateTime.new(2014, 11, 29, 8, 20, 0), category: resource_talk, speakers: [jv_cuevas])
-Program.create(title: 'Git & GitHub Tips for Beginners', start_at: DateTime.new(2014, 11, 29, 8, 20, 0), category: resource_talk, speakers: [sim_domingo])
+Program.create(title: 'Trends in iOS Development', start_at: DateTime.new(2014, 11, 29, 5, 0, 0), category: resource_talk, speakers: [allen_tan], description: 'Learn the latest trends and best practices in iOS development')
+what_why_nosql_description = %Q{Relational databases have been widely used since 1970s. Today with new technology trends like Big Data, massive Internet penetration and IoT we face new challenges for our data: we need to store more information with faster access and with a higher flexibility. Companies are shifting to a new class of data management technologies called "NoSQL", or "Not Only SQL". In this talk, you'll get introduced to these technologies, their motivation and describe different paradigms you can find in NoSQL landscape}
+Program.create(title: 'The "What" and "Why" of NoSQL', start_at: DateTime.new(2014, 11, 29, 6, 15, 0), category: resource_talk, speakers: [matias_cascallares], description: what_why_nosql_description)
+Program.create(title: 'Automated Testing', start_at: DateTime.new(2014, 11, 29, 8, 20, 0), category: resource_talk, speakers: [jv_cuevas], description: 'Learn new techniques to automate your testing')
+Program.create(title: 'Git & GitHub Tips for Beginners', start_at: DateTime.new(2014, 11, 29, 8, 20, 0), category: resource_talk, speakers: [sim_domingo], description: 'Learn top tips in managing your git repository in GitHub.')
 
 TECHNOLOGIES = [
   ['Objective-C', 'objective-c'], ['Java', 'java'], ['Javascript', 'javascript'], ['Python', 'python'],
