@@ -149,6 +149,13 @@ module Devcon
           present :status_code, 200
         end
       end
+
+      resources :news do
+        desc 'Return all news'
+        get do
+          present :news, News.all.map{|news| NewsSerializer.new(news)}
+        end
+      end
     end
   end
 end

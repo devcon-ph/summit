@@ -74,3 +74,7 @@ TECHNOLOGIES = [
 TECHNOLOGIES.each do |name, slug|
   Technology.create(name: name, slug: slug)
 end
+
+['Promos', 'Program', 'Speakers', 'Miscellaneous'].each do |name|
+  NewsCategory.create(name: name)
+end
