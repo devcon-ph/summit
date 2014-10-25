@@ -75,6 +75,41 @@ TECHNOLOGIES.each do |name, slug|
   Technology.create(name: name, slug: slug)
 end
 
-['Promos', 'Program', 'Speakers', 'Miscellaneous'].each do |name|
-  NewsCategory.create(name: name)
-end
+promos = NewsCategory.create(name: 'Promos')
+program = NewsCategory.create(name: 'Program')
+speakers = NewsCategory.create(name: 'Speakers')
+miscellaneous = NewsCategory.create(name: 'Miscellaneous')
+
+no_sql_content = %Q{<p>Relational databases have been widely used since 1970s. Today with new technology trends like Big Data, massive Internet penetration and IoT we face new challenges for our data: we need to store more information with faster access and with a higher flexibility. Companies are shifting to a new class of data management technologies called "NoSQL", or "Not Only SQL". In this talk, you'll get introduced to these technologies, their motivation and describe different paradigms you can find in NoSQL landscape.</p>
+
+<p>Matias is Solutions Architect at MongoDB Inc. He has more than 10 years of experience in software development across America, Europe and Asia-Pacific. He has heavy experience in .com companies like e-commerce sites and social networks with millions of users. Based in Singapore, he helps customers from different industries to be successful using MongoDB database dealing with big and heterogenous data where flexibility and time to market are key factors for success. He is also a reference in MongoDB open source community in Asia.</p>}
+News.create(title: 'Learn the "What" and "Why" of NoSQL by MongoDB Solutions Architect, Matias Cascallares', category: speakers, html_content: no_sql_content)
+
+github_content = %Q{<p>We're giving away <strong>1 Year GitHub Plan worth PHP12,000 + 2 DevCon Summit #DevelopersUnitePH tickets</strong> to one lucky winner!</p>
+
+<p>How to win? Just battle your GitHub account at <a href=”http://www.gitbattle.com/”>http://www.gitbattle.com/</a> and share battle scores!</p>
+<p>The more battles won, the more chances of winning!</p>
+<p>HOW TO WIN</p>
+<ol>
+<li>Battle your GitHub account with another GitHub account at http://www.gitbattle.com</li>
+<li>Share your battle score on Twitter (account must be public) with hashtags #DevelopersUnitePH and #GitHubGiveaway.</li>
+<li>By October 28 (Tuesday) 7PM, one lucky GitHub user will win 1 Year GitHub Medium Plan worth PHP12,000 and 2 DevCon Summit Tickets worth PHP3,000!</li>
+</ol>
+<em>The more battles won, the more chances of winning!</em>}
+News.create(title: 'Win 1 Year GitHub Medium Plan worth PHP12,000!', category: promos, html_content: github_content)
+
+summit_content = %Q{<p>With this year's theme, #DevelopersUnitePH, we are taking you to an unprecedented experience in the history of Philippine developer events!</p>
+<p>We set up the whole event in highlighting opportunities of growth not only for the individual attendees but to the developer communities as a collaborative ecosystem.</p>
+
+<p><strong>EXPERT TALKS & PANEL DISCUSSION</strong><br/>
+Learn the latest trends, best practices and opportunities from our industry guest speakers & panelists.</p>
+
+<p><strong>ENGAGE WITH PHILIPPINE DEVELOPER GROUPS</strong><br/>
+The Philippine developer groups in one roof! Engage and be part of the the growing communities!</p>
+
+<p><strong>CONNECT WITH FELLOW GEEKS</strong><br/>
+
+Meet new geeks, share experiences & win friends!</p>
+
+<p><em>Be sure to bring with you your business cards during the event!</em><p>}
+News.create(title: 'Presenting DevCon Summit 2014 Highlights', category: program, html_content: summit_content)
