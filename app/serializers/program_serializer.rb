@@ -4,4 +4,8 @@ class ProgramSerializer < ActiveModel::Serializer
   has_one :category
 
   has_many :speakers
+
+  def start_at
+    object.start_at.strftime("%I:%M %P")
+  end
 end
