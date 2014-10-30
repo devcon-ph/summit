@@ -114,6 +114,11 @@ module Devcon
         desc 'Update profile information'
         put do
           authenticated?
+          technologies = if params[:technologies].present?
+                           params[:technologies].split(',')
+                         else
+                           []
+                         end
           if current_user.update(
                 position: params[:position],
                 company: params[:company],
@@ -123,7 +128,7 @@ module Devcon
                 facebook_url: params[:facebook_url],
                 twitter_handle: params[:twitter_handle],
                 primary_technology: Technology.where(slug: params[:primary_technology]).first,
-                technologies: Technology.where('slug IN (?)', params[:technologies].split(','))
+                technologies: Technology.where('slug IN (?)', technologies)
               )
             present :profile, UserSerializer.new(current_user)
             present :status_code, 200
