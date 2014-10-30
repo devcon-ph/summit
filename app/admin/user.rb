@@ -1,9 +1,9 @@
 ActiveAdmin.register User do
   permit_params :email, :password, :password_confirmation, :first_name, :last_name,
                 :position, :company, :location, :description, :website, :facebook_url,
-                :twitter_handle, :primary_technology, :technologies, :photo
+                :twitter_handle, :photo, :technology_id, technology_ids: []
 
-  form do |f|
+  form(html: { :enctype => "multipart/form-data" }) do |f|
     inputs do
       input :email
       input :password, required: false

@@ -4,4 +4,8 @@ class UserSerializer < ActiveModel::Serializer
 
   has_one :primary_technology
   has_many :technologies
+
+  def photo_url
+    "http://#{Rails.application.config.action_mailer.default_url_options[:host]}#{object.photo.url}"
+  end
 end
