@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029112000) do
+ActiveRecord::Schema.define(version: 20141030095102) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(version: 20141029112000) do
     t.string   "twitter_handle",         default: ""
     t.integer  "technology_id"
     t.string   "photo_url"
+    t.string   "photo_uid"
+    t.string   "photo_name"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true

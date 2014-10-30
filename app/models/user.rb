@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  dragonfly_accessor :photo
   before_save :ensure_authentication_token
 
   belongs_to :primary_technology, class_name: 'Technology', foreign_key: 'technology_id'
