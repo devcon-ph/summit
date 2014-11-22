@@ -119,6 +119,13 @@ module Devcon
                          else
                            []
                          end
+
+          technologies.each do |technology|
+            Technology.where(slug: technology).first_or_create do |tech|
+              tech.name = technology.titleize
+            end
+          end
+
           if current_user.update(
                 position: params[:position],
                 company: params[:company],
