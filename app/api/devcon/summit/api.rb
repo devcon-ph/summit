@@ -120,7 +120,7 @@ module Devcon
                            []
                          end
 
-          technologies.each do |technology|
+          technologies.zip(params[:primary_technology]).flatten.compact.each do |technology|
             Technology.where(slug: technology).first_or_create do |tech|
               tech.name = technology.titleize
             end
